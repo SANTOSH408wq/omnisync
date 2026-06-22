@@ -1,0 +1,562 @@
+/* ===== Dashboard Component ===== */
+
+/* Page Layout */
+.dashboard-layout {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  z-index: 10;
+  position: relative;
+  flex: 1;
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .dashboard-layout {
+    padding: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashboard-layout {
+    padding: 2rem;
+  }
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 1024px) {
+  .dashboard-grid {
+    grid-template-columns: repeat(12, 1fr);
+  }
+}
+
+/* Left Column */
+.dashboard-left {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .dashboard-left {
+    grid-column: span 4;
+  }
+}
+
+/* Create Beacon Button */
+.create-beacon-btn {
+  width: 100%;
+  background: var(--color-blue-500);
+  color: white;
+  font-weight: 600;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.2);
+  transition: all 0.2s;
+}
+
+.create-beacon-btn:hover {
+  background: var(--color-blue-400);
+  transform: translateY(-1px);
+}
+
+.create-beacon-btn .icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* Create Form */
+.create-form {
+  background: var(--color-gray-800);
+  border: 1px solid var(--color-gray-700);
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.create-form input,
+.create-form textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+}
+
+.create-form textarea {
+  height: 6rem;
+  resize: none;
+}
+
+.medium-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.medium-btn {
+  padding: 0.75rem;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s;
+  border: 1px solid var(--color-gray-700);
+  background: var(--color-gray-800);
+  color: var(--color-gray-400);
+}
+
+.medium-btn:hover {
+  background: var(--color-gray-700);
+}
+
+.medium-btn.selected {
+  border-color: var(--color-blue-500);
+  background: var(--color-blue-50);
+  color: var(--color-blue-700);
+}
+
+.medium-btn .icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.medium-btn span {
+  text-transform: capitalize;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.form-submit-btn {
+  width: 100%;
+  background: var(--color-blue-500);
+  color: white;
+  font-weight: 600;
+  border-radius: 1rem;
+  margin-top: 1rem;
+  padding: 0.75rem;
+  transition: background-color 0.2s;
+}
+
+.form-submit-btn:hover {
+  background: var(--color-blue-400);
+}
+
+/* Skills Card */
+.skills-card {
+  background: var(--color-gray-800);
+  border: 1px solid var(--color-gray-700);
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+}
+
+.skills-desc {
+  font-size: 0.75rem;
+  color: var(--color-gray-500);
+  margin-bottom: 1rem;
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.skill-tag {
+  background: var(--color-gray-800);
+  border: 1px solid var(--color-gray-700);
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-gray-300);
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.skill-tag:hover {
+  background: var(--color-red-50);
+  color: var(--color-red-500);
+  border-color: var(--color-red-100);
+}
+
+.skill-input-row {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.skill-input-row input {
+  flex: 1;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+}
+
+.skill-add-btn {
+  padding: 0 0.75rem;
+}
+
+/* Active Beacons Sidebar */
+.active-beacons-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.my-beacons-card {
+  padding: 1.5rem;
+  background: rgba(239, 246, 255, 0.5);
+  border-color: var(--color-blue-100);
+}
+
+.my-beacons-card .tag {
+  color: var(--color-blue-600);
+}
+
+.solving-card {
+  padding: 1.5rem;
+  background: rgba(240, 253, 244, 0.5);
+  border-color: var(--color-green-100);
+}
+
+.solving-card .tag {
+  color: var(--color-green-500);
+}
+
+.beacon-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.beacon-mini-card {
+  background: var(--color-gray-800);
+  border: 1px solid var(--color-gray-700);
+  padding: 1rem;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.beacon-mini-card:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.beacon-mini-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.25rem;
+}
+
+.beacon-mini-title {
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--color-gray-100);
+}
+
+.beacon-mini-badge {
+  font-size: 10px;
+  background: var(--color-blue-100);
+  color: var(--color-blue-700);
+  padding: 0.125rem 0.5rem;
+  border-radius: 9999px;
+  font-weight: 500;
+}
+
+.beacon-mini-desc {
+  font-size: 0.75rem;
+  color: var(--color-gray-500);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Right Column - Feed */
+.dashboard-right {
+  background: var(--color-gray-800);
+  border: 1px solid var(--color-gray-700);
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 600px;
+}
+
+@media (min-width: 640px) {
+  .dashboard-right {
+    padding: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashboard-right {
+    grid-column: span 8;
+  }
+}
+
+/* Feed Header */
+.feed-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 2rem;
+}
+
+.feed-title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--color-gray-100);
+  margin-bottom: 0.5rem;
+}
+
+.feed-subtitle {
+  color: var(--color-gray-500);
+}
+
+.live-badge {
+  display: none;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-green-500);
+  background: var(--color-green-50);
+  padding: 0.375rem 0.75rem;
+  border-radius: 9999px;
+  border: 1px solid #bbf7d0;
+}
+
+@media (min-width: 640px) {
+  .live-badge {
+    display: flex;
+  }
+}
+
+.live-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 9999px;
+  background: var(--color-green-500);
+  display: block;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Feed List */
+.feed-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Empty State */
+.feed-empty {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 0;
+  color: var(--color-gray-400);
+}
+
+.feed-empty .icon {
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: 1rem;
+  color: var(--color-gray-300);
+}
+
+.feed-empty-title {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: var(--color-gray-400);
+}
+
+.feed-empty-sub {
+  font-size: 0.875rem;
+}
+
+/* Beacon Card */
+.beacon-card {
+  background: var(--color-gray-800);
+  border: 1px solid var(--color-gray-700);
+  padding: 1.25rem;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: flex-start;
+  justify-content: space-between;
+  transition: all 0.2s;
+}
+
+@media (min-width: 640px) {
+  .beacon-card {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.beacon-card:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.beacon-card.match {
+  border-color: var(--color-blue-200);
+  box-shadow: 0 0 0 1px var(--color-blue-50);
+}
+
+.beacon-card-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.beacon-card-title-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.375rem;
+}
+
+.beacon-card-title {
+  font-weight: 700;
+  color: var(--color-gray-100);
+  font-size: 1.125rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.match-badge {
+  background: var(--color-blue-100);
+  color: var(--color-blue-700);
+  font-size: 10px;
+  font-weight: 700;
+  padding: 0.125rem 0.5rem;
+  border-radius: 0.375rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.match-badge .icon {
+  width: 0.75rem;
+  height: 0.75rem;
+}
+
+.beacon-card-desc {
+  font-size: 0.875rem;
+  color: var(--color-gray-400);
+  margin-bottom: 0.75rem;
+}
+
+.beacon-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 1rem;
+  row-gap: 0.5rem;
+  align-items: center;
+  font-size: 0.75rem;
+  color: var(--color-gray-500);
+  font-weight: 500;
+}
+
+.beacon-meta-medium {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  background: var(--color-gray-800);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.375rem;
+  color: var(--color-gray-300);
+  text-transform: capitalize;
+}
+
+.beacon-meta-medium .icon {
+  width: 0.875rem;
+  height: 0.875rem;
+}
+
+.beacon-meta-credits {
+  color: var(--color-green-500);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  background: var(--color-green-50);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.375rem;
+}
+
+.beacon-meta-credits .icon {
+  width: 0.875rem;
+  height: 0.875rem;
+}
+
+.beacon-meta-tags {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.beacon-meta-tags .icon {
+  width: 0.875rem;
+  height: 0.875rem;
+}
+
+.beacon-meta-time {
+  color: var(--color-gray-400);
+}
+
+.beacon-accept-btn {
+  flex-shrink: 0;
+  padding: 0.75rem 1rem;
+  background: var(--color-blue-600);
+  color: white;
+  border-radius: 0.75rem;
+  transition: all 0.2s;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  justify-content: center;
+}
+
+@media (min-width: 640px) {
+  .beacon-accept-btn {
+    width: auto;
+  }
+}
+
+.beacon-accept-btn:hover {
+  background: var(--color-blue-700);
+}
+
+.beacon-accept-btn .icon {
+  width: 1rem;
+  height: 1rem;
+}

@@ -1,0 +1,175 @@
+/* ===== Tiers Page ===== */
+
+/* Page Layout */
+.tiers-layout {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+@media (min-width: 640px) {
+  .tiers-layout {
+    padding: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .tiers-layout {
+    padding: 2rem;
+  }
+}
+
+.tiers-title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: var(--color-gray-100);
+}
+
+.tiers-subtitle {
+  color: var(--color-gray-400);
+  margin-top: 0.5rem;
+}
+
+/* Grid */
+.tiers-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .tiers-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Tier Card */
+.tier-card {
+  background: var(--color-gray-800);
+  border: 1px solid var(--color-gray-700);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  transition: all 0.2s;
+}
+
+.tier-card.active {
+  border-color: var(--color-blue-500);
+  box-shadow: 0 0 0 2px var(--color-blue-100), 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transform: translateY(-0.25rem);
+}
+
+.tier-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.tier-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-gray-100);
+}
+
+.tier-plan-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-gray-400);
+}
+
+.tier-special-label {
+  color: var(--color-purple-500);
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.tier-special-label .icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.tier-current-badge {
+  background: var(--color-blue-100);
+  color: var(--color-blue-700);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.375rem;
+}
+
+.tier-price {
+  margin-bottom: 1.5rem;
+}
+
+.tier-price-text {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--color-gray-100);
+}
+
+.tier-features {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.tier-feature {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-gray-300);
+}
+
+.tier-feature .icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: var(--color-green-500);
+  flex-shrink: 0;
+}
+
+.tier-sub-feature {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+  color: var(--color-gray-400);
+}
+
+.tier-sub-feature .icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: var(--color-blue-500);
+  flex-shrink: 0;
+}
+
+/* Subscribe Button */
+.tier-subscribe-btn {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+  font-weight: 700;
+  transition: all 0.2s;
+}
+
+.tier-subscribe-btn.active-plan {
+  background: var(--color-gray-800);
+  color: var(--color-gray-400);
+  cursor: not-allowed;
+}
+
+.tier-subscribe-btn.available {
+  background: var(--color-blue-600);
+  color: white;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.tier-subscribe-btn.available:hover {
+  background: var(--color-blue-700);
+}
