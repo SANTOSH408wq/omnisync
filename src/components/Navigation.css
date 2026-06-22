@@ -115,26 +115,3 @@
   width: 1.25rem;
   height: 1.25rem;
 }
-
-/* Footer */
-.nav-footer {
-  padding: 0 0.5rem;
-  margin-top: auto;
-}
-
-.nav-logout-btn {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 0.75rem;
-  border-radius: 0.75rem;
-  transition: all 0.2s;
-  font-weight: 500;
-  color: var(--color-gray-400);
-}
-
-.nav-logout-btn:hover {
-  background: var(--color-red-900);
-  color: var(--color-red-100);
-}
